@@ -26,10 +26,7 @@ import {
   MessageSquare,
   Target,
   RefreshCw,
-  VolumeX,
-  Download,
-  Github,
-  X
+  VolumeX
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -86,7 +83,6 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 minutes countdown
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
   const [videoStarted, setVideoStarted] = useState(false);
-  const [downloadStep, setDownloadStep] = useState<'button' | 'instructions' | 'none'>('button');
 
   const handleUnmute = () => {
     const wistiaApi = (window as any).Wistia;
@@ -141,44 +137,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white font-sans selection:bg-yellow-500 selection:text-black">
-      {/* Botão de Download/Vercel */}
-      {downloadStep === 'button' && (
-        <button 
-          id="btn-download-projeto"
-          onClick={() => setDownloadStep('instructions')}
-          className="fixed bottom-6 right-6 bg-yellow-500 text-black px-6 py-3 rounded-full shadow-xl hover:bg-yellow-600 transition-all z-[100] font-bold flex items-center gap-2 animate-bounce"
-        >
-          <Download size={20} />
-          Baixar para Vercel
-        </button>
-      )}
-
-      {/* Modal de Instruções que aparece após o clique */}
-      {downloadStep === 'instructions' && (
-        <div id="modal-instrucoes-vercel" className="fixed bottom-6 right-6 bg-white text-slate-900 p-6 rounded-2xl shadow-2xl z-[100] max-w-sm border border-yellow-100 animate-in fade-in zoom-in duration-300">
-          <button onClick={() => setDownloadStep('none')} className="absolute top-3 right-3 text-slate-400 hover:text-slate-600">
-            <X size={20} />
-          </button>
-          <div className="flex items-center gap-3 mb-4 text-yellow-600">
-            <Github size={24} />
-            <h3 className="font-bold text-lg">Pronto para o Próximo Passo!</h3>
-          </div>
-          <p className="text-sm text-slate-600 mb-4 leading-relaxed">
-            Para colocar este site no ar na <strong>Vercel</strong>, siga estes passos:
-          </p>
-          <ol className="text-sm text-slate-700 space-y-3 list-decimal ml-4 mb-4">
-            <li>Clique no ícone de <strong>Settings</strong> (engrenagem) no topo direito desta tela do AI Studio.</li>
-            <li>Selecione <strong>"Export to GitHub"</strong> (recomendado) ou <strong>"Download ZIP"</strong>.</li>
-            <li>No site da Vercel, clique em "Add New" e importe o repositório que você acabou de criar.</li>
-          </ol>
-          <button 
-            onClick={() => setDownloadStep('none')}
-            className="w-full bg-slate-900 text-white py-2 rounded-xl font-medium hover:bg-slate-800 transition-colors"
-          >
-            Entendi, pode fechar!
-          </button>
-        </div>
-      )}
       {/* Top Bar */}
       <div className="bg-yellow-500 text-black py-2 text-center text-xs font-bold uppercase tracking-widest">
         APROVEITE AGORA, O PREÇO VAI SUBIR!
