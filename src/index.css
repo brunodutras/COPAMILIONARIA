@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide Wistia Branding, Logo and Speed Indicator */
+.wistia_branding,
+.w-vulcan-v2-button,
+.w-vulcan-v2-social,
+.w-vulcan-v2-context-menu,
+.w-vulcan-v2-logo,
+.w-vulcan-v2-branding,
+.w-vulcan-v2-speed-indicator,
+.w-vulcan-v2-speed-control,
+[class*="speed-indicator"],
+[class*="speed-control"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
