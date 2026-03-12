@@ -152,11 +152,7 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-8 pb-12 md:pt-12 md:pb-24 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <h1 className="text-2xl md:text-6xl font-black mb-8 leading-[1.2] md:leading-[1.1] tracking-tight max-w-4xl mx-auto italic uppercase px-2">
             DESCUBRA COMO IMPORTAR <br />
             <span className="text-yellow-500">CAMISAS DE TIME</span> <br />
@@ -164,13 +160,10 @@ export default function App() {
             E REVENDER NO BRASIL <br />
             LUCRANDO ATÉ <span className="text-yellow-500">3X NESTA COPA</span>
           </h1>
-        </motion.div>
+        </div>
 
         {/* VSL Video */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+        <div 
           className="relative max-w-5xl mx-auto bg-black rounded-xl border border-white/10 overflow-hidden shadow-2xl shadow-yellow-500/10 group cursor-pointer"
           onClick={handleUnmute}
         >
@@ -213,7 +206,7 @@ export default function App() {
                </div>
             </div>
           )}
-        </motion.div>
+        </div>
 
         <div className="mt-8">
           <button 
