@@ -179,7 +179,15 @@ export default function App() {
             <div className="wistia_responsive_wrapper" style={{height:'100%',left:0,position:'absolute',top:0,width:'100%'}}>
               <div className="wistia_embed wistia_async_in44uqsuiz videoFoam=true playerColor=eab308 autoPlay=true silentAutoplay=true controlBar=false playbar=false settingsControl=false smallPlayButton=false volumeControl=false fullscreenButton=false branding=false playButton=false playbackRateControl=false" style={{height:'100%',position:'relative',width:'100%'}}>
                 <div className="wistia_swatch" style={{height:'100%',left:0,opacity:0,overflow:'hidden',position:'absolute',top:0,transition:'opacity 200ms',width:'100%'}}>
-                  <img src="https://fast.wistia.com/embed/medias/in44uqsuiz/swatch" style={{filter:'blur(5px)',height:'100%',objectFit:'contain',width:'100%'}} alt="" aria-hidden="true" onLoad={(e) => (e.currentTarget.parentElement!.style.opacity='1')} />
+                  <img 
+                    src="https://fast.wistia.com/embed/medias/in44uqsuiz/swatch" 
+                    style={{filter:'blur(5px)',height:'100%',objectFit:'contain',width:'100%'}} 
+                    alt="" 
+                    aria-hidden="true" 
+                    onLoad={(e) => (e.currentTarget.parentElement!.style.opacity='1')}
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -218,7 +226,7 @@ export default function App() {
       </section>
 
       {/* Why Buy Section */}
-      <section className="bg-white/[0.02] border-y border-white/5 py-12 md:py-24">
+      <section className="bg-white/[0.02] border-y border-white/5 py-12 md:py-24 optimize-render">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 px-4">
             <h2 className="text-xl md:text-4xl font-black mb-6 italic uppercase leading-tight">POR QUE DEVO COMPRAR ESSE TREINAMENTO?</h2>
@@ -258,7 +266,7 @@ export default function App() {
       </section>
 
       {/* Benefits Section */}
-      <section className="container mx-auto px-6 py-12 md:py-24">
+      <section className="container mx-auto px-6 py-12 md:py-24 optimize-render">
         <div className="text-center mb-16 px-4">
           <h2 className="text-2xl md:text-5xl font-black mb-6 italic uppercase leading-tight">O QUE VOCÊ VAI APRENDER?</h2>
           <p className="text-white/60 max-w-xl mx-auto px-4 text-sm md:text-base">O passo a passo completo para construir um negócio lucrativo de importação de mantos sagrados.</p>
@@ -298,7 +306,7 @@ export default function App() {
       </section>
 
       {/* Results / Social Proof */}
-      <section className="bg-[#151515] py-12 md:py-24 overflow-hidden">
+      <section className="bg-[#151515] py-12 md:py-24 overflow-hidden optimize-render">
         <div className="container mx-auto px-6 mb-16">
           <div className="text-center md:text-left px-4 md:px-0">
             <h2 className="text-2xl md:text-6xl font-black mb-4 italic leading-tight uppercase">RESULTADOS REAIS DOS NOSSOS ALUNOS</h2>
@@ -321,6 +329,10 @@ export default function App() {
                       alt={`Resultado ${i}`} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
+                      width="300"
+                      height="533"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                       <p className="text-sm font-bold uppercase tracking-tighter italic text-yellow-500">Resultado Aluno #{i}</p>
@@ -338,7 +350,7 @@ export default function App() {
       </section>
 
       {/* Offer Section */}
-      <section id="oferta" className="container mx-auto px-6 py-12 md:py-24 text-center">
+      <section id="oferta" className="container mx-auto px-6 py-12 md:py-24 text-center optimize-render">
         <div className="max-w-3xl mx-auto bg-[#151515] rounded-[2.5rem] p-6 md:p-16 border border-yellow-500/20 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <Trophy className="h-32 w-32 text-yellow-500" />
@@ -393,7 +405,7 @@ export default function App() {
       </section>
 
       {/* Guarantee Section */}
-      <section className="bg-white/[0.02] border-y border-white/5 py-16">
+      <section className="bg-white/[0.02] border-y border-white/5 py-16 optimize-render">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
             <div className="flex-none">
@@ -419,7 +431,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="container mx-auto px-6 py-12 md:py-24 max-w-3xl">
+      <section className="container mx-auto px-6 py-12 md:py-24 max-w-3xl optimize-render">
         <h2 className="text-2xl font-black mb-12 text-center italic uppercase">PERGUNTAS FREQUENTES</h2>
         <div className="space-y-2">
           <FAQItem 
