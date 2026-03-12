@@ -354,6 +354,10 @@ export default function App() {
             <span className="text-white/60 mt-4 font-medium text-sm md:text-base">ou 12x de 10,03 no cartão</span>
           </div>
 
+          <p className="text-white/80 text-sm md:text-base mb-8 font-medium max-w-md mx-auto leading-relaxed">
+            Acesso completo à lista de fornecedores, curso e scripts para vender na COPA do zero até +1K/dia.
+          </p>
+
           <a 
             href="https://pay.kirvano.com/7809df60-a884-42db-ad0a-8524a62ecb11"
             target="_blank"
@@ -379,10 +383,6 @@ export default function App() {
             <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
               <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
               <span>Script de Atendimento de Alta Conversão</span>
-            </div>
-            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
-              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
-              <span>Bônus: Fornecedores de Tênis e Acessórios</span>
             </div>
             <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
               <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
