@@ -138,7 +138,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white font-sans selection:bg-yellow-500 selection:text-black">
       {/* Top Bar */}
-      <div className="bg-yellow-500 text-black py-2 text-center text-xs font-bold uppercase tracking-widest">
+      <div className="bg-yellow-500 text-black py-2 md:py-3 text-center text-xs md:text-sm font-bold uppercase tracking-wider md:tracking-widest px-4">
         APROVEITE AGORA, O PREÇO VAI SUBIR!
       </div>
 
@@ -151,13 +151,13 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 pt-12 pb-24 text-center">
+      <section className="container mx-auto px-6 pt-8 pb-12 md:pt-12 md:pb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight max-w-5xl mx-auto italic uppercase">
+          <h1 className="text-2xl md:text-6xl font-black mb-8 leading-[1.2] md:leading-[1.1] tracking-tight max-w-4xl mx-auto italic uppercase px-2">
             DESCUBRA COMO IMPORTAR <br />
             <span className="text-yellow-500">CAMISAS DE TIME</span> <br />
             POR PREÇO DE FÁBRICA <br />
@@ -190,9 +190,9 @@ export default function App() {
 
           {!videoStarted && (
             <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center z-20 transition-all group-hover:bg-black/10">
-               <div className="bg-yellow-500 text-black px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl shadow-yellow-500/50 animate-bounce cursor-pointer hover:scale-105 transition-transform">
-                 <VolumeX className="h-6 w-6 animate-pulse" />
-                 <span className="font-black text-lg md:text-xl uppercase tracking-tighter italic">
+               <div className="bg-yellow-500 text-black px-5 py-3 rounded-full flex items-center gap-3 shadow-2xl shadow-yellow-500/50 animate-bounce cursor-pointer hover:scale-105 transition-transform">
+                 <VolumeX className="h-5 w-5 animate-pulse" />
+                 <span className="font-black text-base md:text-lg uppercase tracking-tighter italic">
                    Clique para ouvir
                  </span>
                </div>
@@ -207,64 +207,61 @@ export default function App() {
           )}
         </motion.div>
 
-        <div className="mt-12">
+        <div className="mt-8">
           <button 
             onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-yellow-500 hover:bg-yellow-400 text-black px-10 py-5 rounded-2xl font-black text-xl uppercase tracking-tight transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20 flex items-center gap-3 mx-auto"
+            className="bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-2.5 rounded-full font-black text-sm md:text-base uppercase tracking-tight transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20 flex items-center justify-center mx-auto"
           >
-            Garantir minha vaga <ArrowRight className="h-6 w-6" />
+            quero entrar!
           </button>
-          <p className="mt-4 text-white/40 text-sm flex items-center justify-center gap-2">
-            <ShieldCheck className="h-4 w-4" /> Pagamento 100% Seguro via Criptografia
-          </p>
         </div>
       </section>
 
       {/* Why Buy Section */}
-      <section className="bg-white/[0.02] border-y border-white/5 py-24">
+      <section className="bg-white/[0.02] border-y border-white/5 py-12 md:py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 italic uppercase">POR QUE DEVO COMPRAR ESSE TREINAMENTO?</h2>
-            <p className="text-white/60 max-w-2xl mx-auto">Porque tentar descobrir tudo sozinho pode custar muito mais tempo, dinheiro e oportunidades, principalmente com a Copa chegando.</p>
+          <div className="text-center mb-16 px-4">
+            <h2 className="text-xl md:text-4xl font-black mb-6 italic uppercase leading-tight">POR QUE DEVO COMPRAR ESSE TREINAMENTO?</h2>
+            <p className="text-white/60 max-w-2xl mx-auto px-4 text-xs md:text-sm">Porque tentar descobrir tudo sozinho pode custar muito mais tempo, dinheiro e oportunidades, principalmente com a Copa chegando.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-[#151515] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all group">
               <div className="h-12 w-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <TrendingUp className="h-6 w-6 text-yellow-500" />
               </div>
-              <h3 className="text-xl font-bold mb-4 uppercase italic">Você lucra com o que já ama</h3>
-              <p className="text-white/50 leading-relaxed text-sm">Você já fala de camisa, já conhece os times, já sente a emoção do jogo. Aqui você aprende a transformar esse conhecimento em dinheiro real. Nossos alunos faturam em média R$2.000 no primeiro mês.</p>
+              <h3 className="text-lg font-bold mb-3 uppercase italic">Você lucra com o que já ama</h3>
+              <p className="text-white/50 leading-relaxed text-xs">Você já fala de camisa, já conhece os times, já sente a emoção do jogo. Aqui você aprende a transformar esse conhecimento em dinheiro real. Nossos alunos faturam em média R$2.000 no primeiro mês.</p>
             </div>
             <div className="bg-[#151515] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all group">
               <div className="h-12 w-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <DollarSign className="h-6 w-6 text-yellow-500" />
               </div>
-              <h3 className="text-xl font-bold mb-4 uppercase italic">Você começa com pouco</h3>
-              <p className="text-white/50 leading-relaxed text-sm">Eu mesmo comecei com R$100 no primeiro pedido. Ensinamos a testar a demanda com poucas peças e só escalar quando o lucro já entrou.</p>
+              <h3 className="text-lg font-bold mb-3 uppercase italic">Você começa com pouco</h3>
+              <p className="text-white/50 leading-relaxed text-xs">Eu mesmo comecei com R$100 no primeiro pedido. Ensinamos a testar a demanda com poucas peças e só escalar quando o lucro já entrou.</p>
             </div>
             <div className="bg-[#151515] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all group">
               <div className="h-12 w-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Zap className="h-6 w-6 text-yellow-500" />
               </div>
-              <h3 className="text-xl font-bold mb-4 uppercase italic">Não é teoria, é operação real</h3>
-              <p className="text-white/50 leading-relaxed text-sm">Você aprende um modelo simples: compra pequena → vende rápido → escala com lucro. Sem estoque parado. Sem risco desnecessário.</p>
+              <h3 className="text-lg font-bold mb-3 uppercase italic">Não é teoria, é operação real</h3>
+              <p className="text-white/50 leading-relaxed text-xs">Você aprende um modelo simples: compra pequena → vende rápido → escala com lucro. Sem estoque parado. Sem risco desnecessário.</p>
             </div>
             <div className="bg-[#151515] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all group">
               <div className="h-12 w-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Clock className="h-6 w-6 text-yellow-500" />
               </div>
-              <h3 className="text-xl font-bold mb-4 uppercase italic">Você constrói algo que dura além da Copa</h3>
-              <p className="text-white/50 leading-relaxed text-sm">Não é sobre vender só em junho. É sobre montar uma operação que funciona o ano inteiro, Copa ou não.</p>
+              <h3 className="text-lg font-bold mb-3 uppercase italic">Você constrói algo que dura além da Copa</h3>
+              <p className="text-white/50 leading-relaxed text-xs">Não é sobre vender só em junho. É sobre montar uma operação que funciona o ano inteiro, Copa ou não.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="container mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 italic uppercase">O QUE VOCÊ VAI APRENDER?</h2>
-          <p className="text-white/60 max-w-xl mx-auto">O passo a passo completo para construir um negócio lucrativo de importação de mantos sagrados.</p>
+      <section className="container mx-auto px-6 py-12 md:py-24">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-2xl md:text-5xl font-black mb-6 italic uppercase leading-tight">O QUE VOCÊ VAI APRENDER?</h2>
+          <p className="text-white/60 max-w-xl mx-auto px-4 text-sm md:text-base">O passo a passo completo para construir um negócio lucrativo de importação de mantos sagrados.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <BenefitCard 
@@ -301,11 +298,11 @@ export default function App() {
       </section>
 
       {/* Results / Social Proof */}
-      <section className="bg-[#151515] py-24 overflow-hidden">
+      <section className="bg-[#151515] py-12 md:py-24 overflow-hidden">
         <div className="container mx-auto px-6 mb-16">
-          <div className="text-center md:text-left">
-            <h2 className="text-4xl md:text-6xl font-black mb-4 italic leading-tight uppercase">RESULTADOS REAIS DOS NOSSOS ALUNOS</h2>
-            <p className="text-white/60 max-w-2xl">Veja com seus próprios olhos o que acontece quando você aplica o método correto de importação e vendas.</p>
+          <div className="text-center md:text-left px-4 md:px-0">
+            <h2 className="text-2xl md:text-6xl font-black mb-4 italic leading-tight uppercase">RESULTADOS REAIS DOS NOSSOS ALUNOS</h2>
+            <p className="text-white/60 max-w-2xl px-4 md:px-0 text-sm md:text-base">Veja com seus próprios olhos o que acontece quando você aplica o método correto de importação e vendas.</p>
           </div>
         </div>
         
@@ -341,55 +338,56 @@ export default function App() {
       </section>
 
       {/* Offer Section */}
-      <section id="oferta" className="container mx-auto px-6 py-24 text-center">
-        <div className="max-w-3xl mx-auto bg-[#151515] rounded-[2.5rem] p-8 md:p-16 border border-yellow-500/20 relative overflow-hidden">
+      <section id="oferta" className="container mx-auto px-6 py-12 md:py-24 text-center">
+        <div className="max-w-3xl mx-auto bg-[#151515] rounded-[2.5rem] p-6 md:p-16 border border-yellow-500/20 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <Trophy className="h-32 w-32 text-yellow-500" />
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-black mb-4 italic uppercase">PROJETO COPA MILIONÁRIA</h2>
-          <p className="text-white/60 mb-12">Acesso vitalício à lista de fornecedores + Curso de Vendas e Escala.</p>
+          <h2 className="text-2xl md:text-5xl font-black mb-12 italic uppercase leading-tight">Método Copa Milionária</h2>
           
-          <div className="flex flex-col items-center mb-12">
-            <span className="text-white/40 line-through text-xl mb-2">De R$ 297,00</span>
+          <div className="flex flex-col items-center mb-8 px-4">
+            <span className="text-white/40 line-through text-lg md:text-xl mb-2">De R$ 297,00 por</span>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold">12x de</span>
-              <span className="text-6xl md:text-8xl font-black text-yellow-500 tracking-tighter italic">R$ 9,80</span>
+              <span className="text-5xl md:text-8xl font-black text-yellow-500 tracking-tighter italic">R$ 97,90</span>
             </div>
-            <span className="text-white/60 mt-4 font-medium">Ou R$ 97,90 à vista</span>
-          </div>
-
-          <div className="space-y-4 mb-12 max-w-md mx-auto text-left">
-            <div className="flex items-center gap-3 text-white/80">
-              <CheckCircle2 className="h-5 w-5 text-yellow-500" />
-              <span>Lista de Fornecedores VIP (Thai 1:1)</span>
-            </div>
-            <div className="flex items-center gap-3 text-white/80">
-              <CheckCircle2 className="h-5 w-5 text-yellow-500" />
-              <span>Curso: Como Vender no Instagram e TikTok</span>
-            </div>
-            <div className="flex items-center gap-3 text-white/80">
-              <CheckCircle2 className="h-5 w-5 text-yellow-500" />
-              <span>Script de Atendimento de Alta Conversão</span>
-            </div>
-            <div className="flex items-center gap-3 text-white/80">
-              <CheckCircle2 className="h-5 w-5 text-yellow-500" />
-              <span>Bônus: Fornecedores de Tênis e Acessórios</span>
-            </div>
+            <span className="text-white/60 mt-4 font-medium text-sm md:text-base">ou 12x de 10,03 no cartão</span>
           </div>
 
           <a 
             href="https://pay.kirvano.com/7809df60-a884-42db-ad0a-8524a62ecb11"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full bg-yellow-500 hover:bg-yellow-400 text-black py-6 rounded-2xl font-black text-2xl uppercase tracking-tight transition-all hover:scale-[1.02] shadow-xl shadow-yellow-500/20 mb-6 text-center"
+            className="block w-full max-w-sm mx-auto bg-yellow-500 hover:bg-yellow-400 text-black py-4 rounded-xl font-black text-lg uppercase tracking-tight transition-all hover:scale-[1.02] shadow-xl shadow-yellow-500/20 mb-8 text-center"
           >
-            Garantir Minha Vaga
+            Quero Garantir meu acesso
           </a>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-xs font-bold uppercase tracking-widest text-white/40">
-            <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> Oferta expira em {formatTime(timeLeft)}</div>
-            <div className="flex items-center gap-2"><Users className="h-4 w-4" /> 24 pessoas vendo agora</div>
+          <div className="w-full h-px bg-white/5 mb-8"></div>
+
+          <h3 className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-6">Acesso vitalício ao treinamento</h3>
+
+          <div className="space-y-4 max-w-md mx-auto text-left px-6 md:px-0">
+            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
+              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
+              <span>Lista VIP de Fornecedores Thai 1:1 — acesso vitalício</span>
+            </div>
+            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
+              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
+              <span>Curso de Vendas no Instagram e TikTok</span>
+            </div>
+            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
+              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
+              <span>Script de Atendimento de Alta Conversão</span>
+            </div>
+            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
+              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
+              <span>Bônus: Fornecedores de Tênis e Acessórios</span>
+            </div>
+            <div className="flex items-center gap-4 text-white/80 text-sm md:text-base">
+              <div className="w-2 h-2 rounded-full bg-yellow-500 shrink-0" />
+              <span>Garantia incondicional de 7 dias</span>
+            </div>
           </div>
         </div>
       </section>
@@ -410,10 +408,10 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl md:text-5xl font-black mb-4 italic uppercase tracking-tighter">RISCO ZERO: GARANTIA TOTAL</h2>
-              <p className="mt-4 text-white/40 text-sm font-bold uppercase tracking-widest flex items-center justify-center md:justify-start gap-2">
-                <ShieldCheck className="h-4 w-4 text-yellow-500" /> Compra segura. Pagamento criptografado.
+            <div className="text-center md:text-left px-4 md:px-0">
+              <h2 className="text-2xl md:text-5xl font-black mb-4 italic uppercase tracking-tighter leading-tight">RISCO ZERO: GARANTIA TOTAL</h2>
+              <p className="mt-4 text-white/40 text-xs md:text-sm font-bold uppercase tracking-widest flex items-center justify-center md:justify-start gap-2 px-2 md:px-0">
+                Compra segura. Pagamento criptografado.
               </p>
             </div>
           </div>
@@ -421,8 +419,8 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="container mx-auto px-6 py-24 max-w-3xl">
-        <h2 className="text-3xl font-black mb-12 text-center italic uppercase">PERGUNTAS FREQUENTES</h2>
+      <section className="container mx-auto px-6 py-12 md:py-24 max-w-3xl">
+        <h2 className="text-2xl font-black mb-12 text-center italic uppercase">PERGUNTAS FREQUENTES</h2>
         <div className="space-y-2">
           <FAQItem 
             question="Nunca vendi nada na vida. Consigo aplicar esse método?"
