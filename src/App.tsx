@@ -26,7 +26,9 @@ import {
   MessageSquare,
   Target,
   RefreshCw,
-  VolumeX
+  VolumeX,
+  Instagram,
+  MessageCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -83,6 +85,7 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 minutes countdown
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
   const [videoStarted, setVideoStarted] = useState(false);
+  const [showSupportBubble, setShowSupportBubble] = useState(false);
 
   const handleUnmute = () => {
     const wistiaApi = (window as any).Wistia;
@@ -127,6 +130,21 @@ export default function App() {
       setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const showTimer = setTimeout(() => {
+      setShowSupportBubble(true);
+    }, 30000); // Aparece em 30s
+
+    const hideTimer = setTimeout(() => {
+      setShowSupportBubble(false);
+    }, 35000); // Some em 35s (30s + 5s)
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   const formatTime = (seconds: number) => {
@@ -462,15 +480,54 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-white/5 py-12 bg-black">
         <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="flex items-center justify-center gap-2 mb-4">
             <Trophy className="h-6 w-6 text-yellow-500" />
             <span className="text-lg font-black tracking-tighter uppercase italic">COPA MILIONÁRIA</span>
           </div>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <a 
+              href="https://wa.me/5583998099473?text=Opaa,%20Tenho%20uma%20dúvida%20sobre%20o%20Método" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-colors border border-white/10"
+            >
+              <MessageCircle className="h-4 w-4 text-green-500" />
+              Suporte WhatsApp
+            </a>
+          </div>
+
           <p className="mt-12 text-white/10 text-[10px] uppercase tracking-widest">
             © 2026 | Todos os direitos reservados.
           </p>
         </div>
       </footer>
+      
+      {/* Floating Support Button */}
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <AnimatePresence>
+          {showSupportBubble && (
+            <motion.div
+              initial={{ opacity: 0, x: 20, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 20, scale: 0.8 }}
+              className="bg-white text-black px-4 py-2 rounded-xl text-xs font-bold shadow-2xl relative whitespace-nowrap"
+            >
+              Dúvidas? Fala comigo
+              <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-white" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <a 
+          href="https://wa.me/5583998099473?text=Opaa,%20Tenho%20uma%20dúvida%20sobre%20o%20Método" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-yellow-500 p-3 rounded-full text-black shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+          aria-label="Suporte WhatsApp"
+        >
+          <MessageCircle className="h-5 w-5" />
+        </a>
+      </div>
 
     </div>
   );
