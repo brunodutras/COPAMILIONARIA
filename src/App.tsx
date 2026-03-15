@@ -485,18 +485,6 @@ export default function App() {
             <span className="text-lg font-black tracking-tighter uppercase italic">COPA MILIONÁRIA</span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <a 
-              href="https://wa.me/5583998099473?text=Opaa,%20Tenho%20uma%20dúvida%20sobre%20o%20Método" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-colors border border-white/10"
-            >
-              <MessageCircle className="h-4 w-4 text-green-500" />
-              Suporte WhatsApp
-            </a>
-          </div>
-
           <p className="mt-12 text-white/10 text-[10px] uppercase tracking-widest">
             © 2026 | Todos os direitos reservados.
           </p>
