@@ -227,7 +227,7 @@ export default function App() {
 
         <div className="mt-8">
           <button 
-            onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('checkout-button')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
             className="bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-2.5 rounded-full font-black text-sm md:text-base uppercase tracking-tight transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20 flex items-center justify-center mx-auto"
           >
             quero entrar!
@@ -236,7 +236,7 @@ export default function App() {
       </section>
 
       {/* Why Buy Section */}
-      <section className="bg-white/[0.02] border-y border-white/5 py-12 md:py-24 optimize-render">
+      <section className="bg-white/[0.02] border-y border-white/5 py-12 md:py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 px-4">
             <h2 className="text-xl md:text-4xl font-black mb-6 italic uppercase leading-tight">POR QUE DEVO COMPRAR ESSE TREINAMENTO?</h2>
@@ -276,7 +276,7 @@ export default function App() {
       </section>
 
       {/* Benefits Section */}
-      <section className="container mx-auto px-6 py-12 md:py-24 optimize-render">
+      <section className="container mx-auto px-6 py-12 md:py-24">
         <div className="text-center mb-16 px-4">
           <h2 className="text-2xl md:text-5xl font-black mb-6 italic uppercase leading-tight">O QUE VOCÊ VAI APRENDER?</h2>
           <p className="text-white/60 max-w-xl mx-auto px-4 text-sm md:text-base">O passo a passo completo para construir um negócio lucrativo de importação de mantos sagrados.</p>
@@ -316,7 +316,7 @@ export default function App() {
       </section>
 
       {/* Results / Social Proof */}
-      <section className="bg-[#151515] py-12 md:py-24 overflow-hidden optimize-render">
+      <section className="bg-[#151515] py-12 md:py-24 overflow-hidden">
         <div className="container mx-auto px-6 mb-16">
           <div className="text-center md:text-left px-4 md:px-0">
             <h2 className="text-2xl md:text-6xl font-black mb-4 italic leading-tight uppercase">RESULTADOS REAIS DOS NOSSOS ALUNOS</h2>
@@ -360,7 +360,7 @@ export default function App() {
       </section>
 
       {/* Offer Section */}
-      <section id="oferta" className="container mx-auto px-6 py-12 md:py-24 text-center optimize-render">
+      <section id="checkout" className="container mx-auto px-6 py-12 md:py-24 text-center">
         <div className="max-w-3xl mx-auto bg-[#151515] rounded-[2.5rem] p-6 md:p-16 border border-yellow-500/20 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <Trophy className="h-32 w-32 text-yellow-500" />
@@ -381,6 +381,7 @@ export default function App() {
           </p>
 
           <a 
+            id="checkout-button"
             href="https://pay.kirvano.com/7809df60-a884-42db-ad0a-8524a62ecb11"
             target="_blank"
             rel="noopener noreferrer"
@@ -415,7 +416,7 @@ export default function App() {
       </section>
 
       {/* Guarantee Section */}
-      <section className="bg-white/[0.02] border-y border-white/5 py-16 optimize-render">
+      <section className="bg-white/[0.02] border-y border-white/5 py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
             <div className="flex-none">
@@ -441,7 +442,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="container mx-auto px-6 py-12 md:py-24 max-w-3xl optimize-render">
+      <section className="container mx-auto px-6 py-12 md:py-24 max-w-3xl">
         <h2 className="text-2xl font-black mb-12 text-center italic uppercase">PERGUNTAS FREQUENTES</h2>
         <div className="space-y-2">
           <FAQItem 

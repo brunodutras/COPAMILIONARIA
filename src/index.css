@@ -4,11 +4,6 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-.optimize-render {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
-}
-
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
