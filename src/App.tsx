@@ -153,6 +153,36 @@ export default function App() {
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const slowScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 2000; // 2 seconds as requested
+    let start: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const percentage = Math.min(progress / duration, 1);
+      
+      // Ease-in-out cubic function for a smooth feel
+      const easing = percentage < 0.5 
+        ? 4 * percentage * percentage * percentage 
+        : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
+
+      window.scrollTo(0, startPosition + distance * easing);
+
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white font-sans selection:bg-yellow-500 selection:text-black">
       {/* Top Bar */}
@@ -227,7 +257,7 @@ export default function App() {
 
         <div className="mt-8">
           <button 
-            onClick={() => document.getElementById('checkout-button')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+            onClick={() => slowScrollTo('checkout')}
             className="bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-2.5 rounded-full font-black text-sm md:text-base uppercase tracking-tight transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20 flex items-center justify-center mx-auto"
           >
             quero entrar!
