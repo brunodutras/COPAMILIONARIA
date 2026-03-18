@@ -183,19 +183,10 @@ export default function App() {
     window.requestAnimationFrame(step);
   };
 
-  const getImageUrl = (i: number, format: 'png' | 'webp' = 'png') => {
-    const images: Record<number, string> = {
-      1: 'z9kSPkR',
-      2: 'u2h2cML',
-      3: 'OluHSMh',
-      4: 'BAuxPx0',
-      5: 'JpikshW',
-      6: 'AEXvIZd',
-      7: 'u1GoCvp',
-      8: 'jiAF9nQ'
-    };
-    if (images[i]) return `https://i.imgur.com/${images[i]}.${format}`;
-    return `https://picsum.photos/seed/testimonial-${i}/400/711`;
+  const getImageUrl = (i: number) => {
+    const webpImages = [1, 2, 3];
+    if (webpImages.includes(i)) return `/resultado-${i}.webp`;
+    return `/resultado-${i}.png`;
   };
 
   return (
@@ -383,16 +374,13 @@ export default function App() {
                     className="flex-none w-[260px] md:w-[300px] relative group overflow-hidden rounded-2xl border border-white/10 aspect-[9/16] bg-black/40 shadow-2xl"
                   >
                     <picture>
-                      <source srcSet={getImageUrl(i, 'webp')} type="image/webp" />
-                      <img 
-                        src={getImageUrl(i, 'png')} 
-                        alt={`Resultado ${i}`} 
+                      <source srcSet={getImageUrl(i)} type="image/webp" />
+                      <img
+                        src={`/resultado-${i}.png`}
+                        alt={`Resultado ${i}`}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        referrerPolicy="no-referrer"
                         loading="lazy"
                         decoding="async"
-                        width="300"
-                        height="533"
                       />
                     </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
