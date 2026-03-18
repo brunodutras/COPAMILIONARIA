@@ -183,6 +183,21 @@ export default function App() {
     window.requestAnimationFrame(step);
   };
 
+  const getImageUrl = (i: number, format: 'png' | 'webp' = 'png') => {
+    const images: Record<number, string> = {
+      1: 'z9kSPkR',
+      2: 'u2h2cML',
+      3: 'OluHSMh',
+      4: 'BAuxPx0',
+      5: 'JpikshW',
+      6: 'AEXvIZd',
+      7: 'u1GoCvp',
+      8: 'jiAF9nQ'
+    };
+    if (images[i]) return `https://i.imgur.com/${images[i]}.${format}`;
+    return `https://picsum.photos/seed/testimonial-${i}/400/711`;
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white font-sans selection:bg-yellow-500 selection:text-black">
       {/* Top Bar */}
@@ -220,14 +235,17 @@ export default function App() {
             <div className="wistia_responsive_wrapper" style={{height:'100%',left:0,position:'absolute',top:0,width:'100%'}}>
               <div className="wistia_embed wistia_async_in44uqsuiz videoFoam=true playerColor=eab308 autoPlay=true silentAutoplay=true controlBar=false playbar=false settingsControl=false smallPlayButton=false volumeControl=false fullscreenButton=false branding=false playButton=false playbackRateControl=false" style={{height:'100%',position:'relative',width:'100%'}}>
                 <div className="wistia_swatch" style={{height:'100%',left:0,opacity:1,overflow:'hidden',position:'absolute',top:0,width:'100%'}}>
-                  <img 
-                    src="https://fast.wistia.com/embed/medias/in44uqsuiz/swatch" 
-                    style={{filter:'blur(5px)',height:'100%',objectFit:'contain',width:'100%'}} 
-                    alt="" 
-                    aria-hidden="true" 
-                    fetchPriority="high"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source srcSet="https://fast.wistia.com/embed/medias/in44uqsuiz/swatch.webp" type="image/webp" />
+                    <img 
+                      src="https://fast.wistia.com/embed/medias/in44uqsuiz/swatch" 
+                      style={{filter:'blur(5px)',height:'100%',objectFit:'contain',width:'100%'}} 
+                      alt="" 
+                      aria-hidden="true" 
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -364,16 +382,19 @@ export default function App() {
                     whileHover={{ y: -10 }}
                     className="flex-none w-[260px] md:w-[300px] relative group overflow-hidden rounded-2xl border border-white/10 aspect-[9/16] bg-black/40 shadow-2xl"
                   >
-                    <img 
-                      src={i === 1 ? 'https://i.imgur.com/z9kSPkR.png' : i === 2 ? 'https://i.imgur.com/u2h2cML.png' : i === 3 ? 'https://i.imgur.com/OluHSMh.png' : i === 4 ? 'https://i.imgur.com/BAuxPx0.png' : i === 5 ? 'https://i.imgur.com/JpikshW.png' : i === 6 ? 'https://i.imgur.com/AEXvIZd.png' : i === 7 ? 'https://i.imgur.com/u1GoCvp.png' : i === 8 ? 'https://i.imgur.com/jiAF9nQ.png' : `https://picsum.photos/seed/testimonial-${i}/400/711`} 
-                      alt={`Resultado ${i}`} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                      decoding="async"
-                      width="300"
-                      height="533"
-                    />
+                    <picture>
+                      <source srcSet={getImageUrl(i, 'webp')} type="image/webp" />
+                      <img 
+                        src={getImageUrl(i, 'png')} 
+                        alt={`Resultado ${i}`} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                        decoding="async"
+                        width="300"
+                        height="533"
+                      />
+                    </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                       <p className="text-sm font-bold uppercase tracking-tighter italic text-yellow-500">Resultado Aluno #{i}</p>
                     </div>
